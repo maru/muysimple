@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+{% block content_title %}
+<h2>Ultimos artículos</h2>
+{% endblock %}
+
+<div class="archives">
+{% for article in articles_page.object_list %}
+  <div class="row">
+    <span class="date">{{article.locale_date}}</span>
+    <span class="title">
+      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title|striptags }}</a>
+    </span>
+  </div>
+{% endfor %}
+</div>
+
+{% if articles_page.has_other_pages() %}
+    {% include 'pagination.html' %}
+{% endif %}
+
+{% endblock content %}

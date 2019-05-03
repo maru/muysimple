@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
+
+{% block meta %}
+  {{ super() }}
+
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <article>
+  <header>
+    <h1 class="entry-title">{{ article.title }}</h1>
+    {% if article.category %}
+    <span class="category">
+        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    </span>
+    {% endif %}
+    {% if article.tags %}
+    <span class="tags">
+        {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}
+    </span>
+    {% endif %}
+  </header>
+  <div class="entry-content">
+    {{ article.content }}
+  </div><!-- /.entry-content -->
+  <footer class="post-info">
+    <ul class="prev-next">
+    {% if article.prev_article %}
+        <li><a class="left" title="{{ article.prev_article.title }}" href="{{ SITEURL }}/{{ article.prev_article.url}}">
+            {{ article.prev_article.title }}
+        </a></li>
+    {% endif %}
+    {% if article.next_article %}
+        <li><a class="right" title="{{ article.next_article.title }}" href="{{ SITEURL }}/{{ article.next_article.url}}">
+            {{ article.next_article.title }}
+        </a></li>
+    {% endif %}
+    </ul>
+  </footer><!-- /.post-info -->
+  </article>
+{% endblock %}

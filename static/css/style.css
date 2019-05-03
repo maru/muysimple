@@ -1,0 +1,147 @@
+body {
+    font-family: Palatino, Georgia, "Abyssinica SIL", Times, serif;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 0;
+}
+#container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+header#banner {
+    text-align: center;
+}
+#banner-title {
+    display: inline-block;
+}
+#banner-title p {
+    margin: 0 0 5px;
+    padding: 0;
+}
+#banner-title h1 {
+    font-weight: 700;
+    font-size: 3em;
+    margin: 0;
+}
+#banner-title h1 a {
+    text-decoration: none;
+    color: #000;
+}
+nav.header-nav {
+    margin: 0;
+    clear: both;
+    position: relative;
+    text-align: center;
+    padding: .5em 2.5em;
+    height: 3em;
+    font-size: 1.5em;
+}
+nav, nav ul, nav li, article>footer .prev-next {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+nav ul, article>footer .prev-next {
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+nav li, article>footer .prev-next li {
+    display: inline;
+    margin: 0;
+}
+nav ul li+li:before {
+    content: '/';
+    padding: 0 .5em 0 .25em;
+    fill: #fff;
+    vertical-align: middle;
+    color: gold;
+}
+nav li a {
+    text-decoration: none;
+    color: #fff;
+    color: #000;
+}
+footer#about {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 3em;
+}
+header#banner, #content, footer#about {
+    padding: 2em 2.5em 1em;
+}
+.archives .row {
+    line-height: 1.75em;
+}
+.archives .date {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #666;
+}
+.archives .title {
+    font-size: 1.2em;
+}
+article {
+    font-size: 1.2em;
+}
+article>header {
+    border-bottom: 1px solid #f2f2f0;
+    padding-bottom: 1em;
+}
+article>header h1 {
+    font-size: 1.75em;
+}
+article>header h1.entry-title {
+    margin: 0 0 .5em;
+}
+article>header h1.page-title {
+    margin: 0;
+}
+.category a, .tags a, .category, .tag {
+    text-decoration: none;
+    margin: 0 0.1em;
+    padding: 0.2em 0.6em;
+    color: #fff;
+    background: dodgerblue;
+    font-size: 90%;
+}
+.tags a, .tag {
+    background: SlateBlue;
+}
+.entry-content {
+    line-height: 1.4em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #f2f2f0;
+}
+article>footer {
+    padding: 1em 0;
+    border-bottom: 1px solid #f2f2f0;
+}
+article>footer .prev-next {
+    width: 100%;
+}
+article>footer .prev-next .left {
+    float: left;
+}
+article>footer .prev-next .right {
+    float: right;
+}
+article>footer .prev-next a {
+    text-decoration: none;
+    color: #00e;
+}
+article>footer .prev-next a:hover {
+    background-color: #00e;
+    color: white;
+}
+article>footer .prev-next .left:before {
+    content: "\00ab";
+}
+article>footer .prev-next .right:after {
+    content: "\00bb";
+}

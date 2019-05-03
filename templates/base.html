@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}" prefix="og: http://ogp.me/ns#">
+<head>
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="{{ BIO }}" />
+    <meta property="og:description" content="{{ BIO }}" />
+    <meta property="og:title" content="{{ SITENAME }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ SITEURL }}" />
+    {% block meta %}
+    {% endblock meta %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+
+    <link rel="stylesheet" href="/{{ THEME_STATIC_DIR }}/css/pygments.css" />
+    <link rel="stylesheet" href="/{{ THEME_STATIC_DIR }}/css/style.css" />
+    <link rel="icon" href="/images/favicon.ico" />
+</head>
+
+<body id="index" class="home">
+    <div id="container">
+        <header id="banner">
+            <div id="banner-title">
+                {% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}
+                <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+            </div>
+        </header><!-- /#banner -->
+        <section id="content">
+        {% block content %}
+        {% endblock %}
+        </section><!-- /#content -->
+        <footer id="about">
+            <nav role="navigation" class="header-nav"><ul>
+            {% for title, link in MENUITEMS %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+              {% for p in pages %}
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+              {% endfor %}
+            {% endif %}
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+              {% for cat, null in categories %}
+                <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              {% endfor %}
+            {% endif %}
+            {% if FEED_ATOM %}
+            <li  class="subscription" data-subscription="rss"> <a href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" rel="alternate" title="{{ SITENAME }} Atom Feed">
+                 <img src="/{{ THEME_STATIC_DIR }}/images/feed.png" title="Subscribe" width="14" /></a></li>
+            {% endif %}
+            </ul></nav><!-- /#menu -->
+            <div>
+                Powered by <a href="http://getpelican.com/">Pelican</a>
+                and <a href="https://github.com/maru/muysimple">MuySimple</a>
+            </div><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+    </div>
+</body>
+</html>
